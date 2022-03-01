@@ -21,7 +21,7 @@ function Recomendations({ currentItem }) {
       <h1>We also recommend: </h1>
       <Content>
         {recomendations.map((e) =>
-          e.id === currentItem ? (
+          e.id == currentItem ? (
             ""
           ) : (
             <Recomendation key={e.id} item={e}></Recomendation>
