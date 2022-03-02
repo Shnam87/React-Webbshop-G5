@@ -38,14 +38,14 @@ function Product({ addToCart, cart }) {
         <Img src={item.url} alt={item.title} />
         <Text>
           <Title>{item.title}</Title>
-          <P>{item.description}</P>
+          <Desc>{item.description}</Desc>
           <Price>{item.price} Kr</Price>
 
           <Form onSubmit={addCart}>
             <Button>Add to cart</Button>
             <Input type="number" value={number} onChange={changeNumber} />
           </Form>
-          <Storage>I lager: {item.storage}</Storage>
+          <Storage>In Stock: {item.storage}</Storage>
         </Text>
       </Container>
 
@@ -58,22 +58,25 @@ const Title = styled.h1`
   grid-row: 1;
   grid-column: 1 / span 2;
   font-size: 2em;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Mulish', sans-serif;
+  font-weight:700;
 `;
 
 const Container = styled.div`
   display: grid;
   grid-column-gap: 1em;
   background-color: white;
-  padding-left: 5em;
-  padding-bottom: 5em;
+  padding-left: 3em;
+  padding-right:3em;
+  padding-bottom: 3em;
   padding-top: 2em;
 `;
 
 const Img = styled.img`
   grid-row: 2;
   grid-column: 1;
-  width: 100%;
+  width:40em;
+  margin-inline:auto;
 `;
 
 const Text = styled.div`
@@ -86,11 +89,16 @@ const Text = styled.div`
 
 const P = styled.p`
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Mulish', sans-serif;
   text-align: left;
   grid-row: 2;
   grid-column: 1 / span 2;
-  opacity: 0.8;
+  
+`;
+
+const Desc = styled(P)`
+width:40em;
+margin-inline:auto;
 `;
 
 const Price = styled(P)`
@@ -100,7 +108,7 @@ const Price = styled(P)`
   grid-column: 1;
   padding-top: 2em;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Mulish', sans-serif;
 `;
 
 const Form = styled.form`
@@ -122,8 +130,8 @@ const Button = styled.button`
   margin-right: 1em;
   box-shadow: 2px 2px 3px black;
   color: white;
-  font-family: 'Quicksand', sans-serif;
-  font-weight:500;
+  font-family: 'Mulish', sans-serif;
+  font-weight:600;
 
   
 
