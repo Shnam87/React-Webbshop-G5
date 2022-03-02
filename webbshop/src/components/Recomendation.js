@@ -14,6 +14,7 @@ function Recomendation({ item }) {
 const Img = styled.img`
   width: 10em;
   border-radius:0.5em;
+  background-color:white;
 `;
 
 export default Recomendation;
