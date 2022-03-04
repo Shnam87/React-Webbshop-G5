@@ -53,7 +53,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Products />} />
-          <Route />
+          <Route
+            path="/product/:id"
+            element={<Product addToCart={addToCart} cart={cart} />}
+          />
           <Route
             path="/checkout"
             element={
@@ -66,6 +69,7 @@ function App() {
           />
           <Route />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
