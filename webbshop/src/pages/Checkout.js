@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import CheckoutItem from "../components/CheckoutItem";
 import CheckoutSum from "../components/CheckoutSum";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import CheckoutForm from "../components/CheckoutForm";
 
 function Checkout({ cart, removeItem, changeItemQuantity }) {
   const [formIsActive, setFormIsActive] = useState(false);
-
+  document.title = "Checkout";
   const showForm = () => {
     setFormIsActive(!formIsActive);
   };
 
   return (
-    <div>
+    <motion.div initial={{ x: "100%" }} animate={{ x: 0 }}>
       {cart != "" && formIsActive === false ? (
         <div>
           <Table>
@@ -52,11 +54,14 @@ function Checkout({ cart, removeItem, changeItemQuantity }) {
           )}
         </div>
       )}
-      {formIsActive ?
-      <div>hej</div>
-      
-      : ""}
-    </div>
+      {formIsActive ? (
+        <motion.div initial={{ x: "100%" }} animate={{ x: 0 }}>
+          <CheckoutForm />
+        </motion.div>
+      ) : (
+        ""
+      )}
+    </motion.div>
   );
 }
 
@@ -78,15 +83,15 @@ const NextBtn = styled.button`
   border: none;
   font-size: 26px;
   padding-inline: 1em;
-  padding-block:0.5em;
+  padding-block: 0.5em;
   background-color: #a0ffa0;
   box-shadow: 2px 2px 3px black;
 
-&:hover {
-  box-shadow: -2px 2px 3px black;
-  transition: 0.25s ease-in-out;
-  background-color: lightgreen;
-}
+  &:hover {
+    box-shadow: -2px 2px 3px black;
+    transition: 0.25s ease-in-out;
+    background-color: lightgreen;
+  }
 `;
 
 export default Checkout;
