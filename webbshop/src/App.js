@@ -42,9 +42,7 @@ function App() {
     const updatedItems = cart.map((item) =>
       item.id === newItem.id ? newItem : item
     );
-
     setCart(updatedItems);
-    console.log(cart)
   };
 
   return (
