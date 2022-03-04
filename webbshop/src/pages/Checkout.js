@@ -52,8 +52,10 @@ function Checkout({ cart, removeItem, changeItemQuantity }) {
           )}
         </div>
       )}
-
-      {formIsActive ? <div>hej</div> : ""}
+      {formIsActive ?
+      <div>hej</div>
+      
+      : ""}
     </div>
   );
 }
