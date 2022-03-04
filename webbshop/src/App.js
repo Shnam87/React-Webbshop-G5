@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Products from "./pages/Products";
 import Product from "./pages/Product";
+import Footer from "./components/Footer"
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -28,7 +29,7 @@ function App() {
           <Route />
           <Route />
         </Routes>
-        
+        <Footer />
       </BrowserRouter>
     </div>
   );
