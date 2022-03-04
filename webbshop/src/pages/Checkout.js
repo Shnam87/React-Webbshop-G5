@@ -18,9 +18,9 @@ function Checkout({ cart, removeItem, changeItemQuantity }) {
           <Table>
             <tbody>
               <TR>
-                <Th>Product</Th>
-                <Th>Amount</Th>
-                <Th>Quant.</Th>
+                <Th>Produkt</Th>
+                <Th>Kostnad /st.</Th>
+                <Th>Kvant.</Th>
                 <Th>Id</Th>
               </TR>
 
@@ -44,9 +44,9 @@ function Checkout({ cart, removeItem, changeItemQuantity }) {
             ""
           ) : (
             <div>
-              Your cart is empty. To get more items,
+              Varukorgen är tom. Hämta artiklar,
               <Link to="/">
-                <button>Click Here</button>
+                <button>Här</button>
               </Link>
             </div>
           )}
