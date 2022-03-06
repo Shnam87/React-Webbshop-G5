@@ -7,6 +7,7 @@ function Nav() {
     <nav className={styles.nav}>
         <Link to="/">Hem</Link>
         <img src='{}' alt='Cart' />
+        <Link to="/checkout">check</Link>
     </nav>
   )
 }

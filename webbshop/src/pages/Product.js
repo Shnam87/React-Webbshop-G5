@@ -4,7 +4,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Recomendations from "../components/Recomendations";
 
-function Product({ addToCart, cart }) {
+function Product({ addToCart }) {
   const [item, setItem] = useState({});
   const [number, setNumber] = useState("1");
   const params = useParams();
@@ -28,8 +28,8 @@ function Product({ addToCart, cart }) {
 
   const addCart = (e) => {
     e.preventDefault();
-    addToCart(item);
-    console.log(cart);
+    const newItem = {...item, quantity: number}
+    addToCart(newItem);
   };
 
   return (
@@ -58,8 +58,8 @@ const Title = styled.h1`
   grid-row: 1;
   grid-column: 1 / span 2;
   font-size: 2em;
-  font-family: 'Mulish', sans-serif;
-  font-weight:700;
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
 `;
 
 const Container = styled.div`
@@ -67,7 +67,7 @@ const Container = styled.div`
   grid-column-gap: 1em;
   background-color: white;
   padding-left: 3em;
-  padding-right:3em;
+  padding-right: 3em;
   padding-bottom: 3em;
   padding-top: 2em;
 `;
@@ -75,8 +75,8 @@ const Container = styled.div`
 const Img = styled.img`
   grid-row: 2;
   grid-column: 1;
-  width:40em;
-  margin-inline:auto;
+  width: 40em;
+  margin-inline: auto;
 `;
 
 const Text = styled.div`
@@ -89,16 +89,15 @@ const Text = styled.div`
 
 const P = styled.p`
   display: block;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   text-align: left;
   grid-row: 2;
   grid-column: 1 / span 2;
-  
 `;
 
 const Desc = styled(P)`
-width:40em;
-margin-inline:auto;
+  width: 40em;
+  margin-inline: auto;
 `;
 
 const Price = styled(P)`
@@ -108,7 +107,7 @@ const Price = styled(P)`
   grid-column: 1;
   padding-top: 2em;
   text-align: center;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
 `;
 
 const Form = styled.form`
@@ -130,10 +129,8 @@ const Button = styled.button`
   margin-right: 1em;
   box-shadow: 2px 2px 3px black;
   color: white;
-  font-family: 'Mulish', sans-serif;
-  font-weight:600;
-
-  
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
 
   &:hover {
     box-shadow: -2px 2px 3px black;

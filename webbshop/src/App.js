@@ -5,38 +5,38 @@ import Nav from "./components/Nav";
 import Products from "./pages/Products";
 import Checkout from "./pages/Checkout";
 import { useState } from "react";
+import Footer from "./components/Footer";
+import Product from "./pages/Product";
 
 function App() {
-  const [cart, setCart] = useState([
-    {
-      id: 234967,
-      title: "Bugatti (On Sale)",
-      description:
-        "Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n recusandae alias error harum maxime adipisci amet laborum.",
-      price: 550,
-      storage: 21,
-      quantity: 2,
-      url: "https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_1280.jpg",
-    },
-    {
-      id: 678453,
-      title: "Ford Mustang",
-      description:
-        "Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n recusandae alias error harum maxime adipisci amet laborum.",
-      price: 1899000,
-      storage: 55,
-      quantity: 1,
-      url: "https://cdn.pixabay.com/photo/2013/07/12/12/56/ford-mustang-146580_1280.png",
-    },
-  ]);
+  const [cart, setCart] = useState([]);
 
   const removeItem = (id) => {
-    setCart(cart.filter((e) => e.id != id));
+    setCart(cart.filter((e) => e.id !== id));
   };
 
+  /*----------------------------------------------------------------------------------- */
   const addToCart = (item) => {
-    cart ? setCart([...cart, item]) : setCart(item);
+    if (cart.map(e=>e.id === item.id)){
+      cleanCart(item);
+    }else if (!cart.map(e=>e.id === item.id)){
+      setCart([...cart, item])
+    }
   };
+
+  const addTo = (item) => {
+    addToCart(item);
+  };
+
+  const cleanCart = (item) => {
+    let count = 0;
+    cart.map((e) =>  e.id === item.id ? count += e.quantity : "");
+    let newCart = cart.filter(e=> e.id === item.id ? "" : e);
+    newCart = [...newCart, item = {...item, quantity: Number(count) + Number(item.quantity)}]
+    
+    setCart(newCart)
+  };
+  /*---------------------------------------------------------------------------------*/
 
   const changeItemQuantity = (newItem) => {
     const updatedItems = cart.map((item) =>
@@ -55,7 +55,9 @@ function App() {
           <Route path="/" element={<Products />} />
           <Route
             path="/product/:id"
-            element={<Product addToCart={addToCart} cart={cart} />}
+            element={
+              <Product addToCart={addToCart} />
+            }
           />
           <Route
             path="/checkout"

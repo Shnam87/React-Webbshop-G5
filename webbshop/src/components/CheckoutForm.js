@@ -82,7 +82,7 @@ const NextBtn = styled.button`
   padding-block: 0.5em;
   background-color: #a0ffa0;
   box-shadow: 2px 2px 3px black;
-
+  margin-bottom:1em;
   &:hover {
     box-shadow: -2px 2px 3px black;
     transition: 0.25s ease-in-out;
