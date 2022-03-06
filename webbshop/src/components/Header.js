@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from '../styles/pageStyle.module.css'
+import {StyledHeader} from '../styles/styledComponents'
 
 function Header() {
   return (
-    <header className={styles.header} >
-      <h1>G5 Elektronisk webbutik</h1>
-    </header>
+    <StyledHeader>
+      <h1>G5 Bilars webbutik</h1>
+    </StyledHeader>
   )
 }
 
