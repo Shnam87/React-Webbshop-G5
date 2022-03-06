@@ -45,12 +45,12 @@ function Checkout({ cart, removeItem, changeItemQuantity }) {
           {formIsActive ? (
             ""
           ) : (
-            <div>
-              Varukorgen är tom. Hämta artiklar,
-              <Link to="/product/678453">
-                <button>Här</button>
+            <EmptyMessage>
+              Varukorgen är tom. Hämta artiklar, <br></br>
+              <Link to="/">
+                <Button>Här</Button>
               </Link>
-            </div>
+            </EmptyMessage>
           )}
         </div>
       )}
@@ -73,6 +73,7 @@ const Table = styled.table`
   display: flex;
   justify-content: center;
   background-color: whitesmoke;
+  
 `;
 
 const Th = styled.th`
@@ -86,7 +87,8 @@ const NextBtn = styled.button`
   padding-block: 0.5em;
   background-color: #a0ffa0;
   box-shadow: 2px 2px 3px black;
-  margin-bottom: 1em;
+  margin-bottom:  calc(100vh - 23.5em);
+  
   &:hover {
     box-shadow: -2px 2px 3px black;
     transition: 0.25s ease-in-out;
@@ -94,4 +96,18 @@ const NextBtn = styled.button`
   }
 `;
 
+const Button = styled.button`
+  padding: 0.5em;
+  border: none;
+  font-size: 1.4em;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const EmptyMessage = styled.div`
+  height: calc(100vh - 23.5em);
+
+`;
 export default Checkout;

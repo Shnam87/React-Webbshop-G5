@@ -24,10 +24,6 @@ function App() {
     }
   };
 
-  const addTo = (item) => {
-    addToCart(item);
-  };
-
   const cleanCart = (item) => {
     let count = 0;
     cart.map((e) =>  e.id === item.id ? count += e.quantity : "");

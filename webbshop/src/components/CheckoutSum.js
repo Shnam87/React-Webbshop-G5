@@ -18,6 +18,7 @@ const Sum = styled.div`
   padding: 1em;
   border-radius: 0.3em;
   background-color: whitesmoke;
+  
 `;
 
 export default CheckoutSum;
