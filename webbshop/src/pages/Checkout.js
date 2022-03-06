@@ -73,7 +73,6 @@ const Table = styled.table`
   display: flex;
   justify-content: center;
   background-color: whitesmoke;
-  
 `;
 
 const Th = styled.th`
@@ -87,8 +86,8 @@ const NextBtn = styled.button`
   padding-block: 0.5em;
   background-color: #a0ffa0;
   box-shadow: 2px 2px 3px black;
-  margin-bottom:  calc(100vh - 23.5em);
-  
+  margin-bottom: calc(100vh - 23.5em);
+
   &:hover {
     box-shadow: -2px 2px 3px black;
     transition: 0.25s ease-in-out;
@@ -108,6 +107,5 @@ const Button = styled.button`
 
 const EmptyMessage = styled.div`
   height: calc(100vh - 23.5em);
-
 `;
 export default Checkout;

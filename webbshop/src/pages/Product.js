@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 import Recomendations from "../components/Recomendations";
+import { motion } from "framer-motion";
 
 function Product({ addToCart }) {
   const [item, setItem] = useState({});
@@ -28,12 +29,13 @@ function Product({ addToCart }) {
 
   const addCart = (e) => {
     e.preventDefault();
-    const newItem = {...item, quantity: number}
+    const newItem = { ...item, quantity: number };
     addToCart(newItem);
+    alert(`Added ${number} of ${item.title} to cart.`)
   };
 
   return (
-    <Content className="Product">
+    <Content className="Product" initial={{ x: "-100%" }} animate={{ x: 0 }}>
       <Container>
         <Img src={item.url} alt={item.title} />
         <Text>
@@ -48,7 +50,6 @@ function Product({ addToCart }) {
           <Storage>In Stock: {item.storage}</Storage>
         </Text>
       </Container>
-
       <Recomendations currentItem={params.id} />
     </Content>
   );
@@ -70,6 +71,7 @@ const Container = styled.div`
   padding-right: 3em;
   padding-bottom: 3em;
   padding-top: 2em;
+  min-height: 27em;
 `;
 
 const Img = styled.img`
@@ -77,6 +79,7 @@ const Img = styled.img`
   grid-column: 1;
   width: 40em;
   margin-inline: auto;
+  align-items: center;
 `;
 
 const Text = styled.div`
@@ -84,7 +87,8 @@ const Text = styled.div`
   margin: auto;
   width: 75%;
   display: grid;
-  padding: 3em;
+
+  align-items: center;
 `;
 
 const P = styled.p`
@@ -105,7 +109,7 @@ const Price = styled(P)`
   font-size: 24px;
   grid-row: 3;
   grid-column: 1;
-  padding-top: 2em;
+  align-items: center;
   text-align: center;
   font-family: "Mulish", sans-serif;
 `;
@@ -113,7 +117,6 @@ const Price = styled(P)`
 const Form = styled.form`
   grid-row: 3;
   grid-column: 2;
-  padding-top: 4em;
 `;
 
 const Storage = styled(P)`
@@ -140,10 +143,10 @@ const Button = styled.button`
   }
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   background-color: whitesmoke;
   /*100 px är storleken på header */
-  min-height: calc(100vh - 100px);
+  height: calc(100vh - 13.5em);
 `;
 
 const Input = styled.input`

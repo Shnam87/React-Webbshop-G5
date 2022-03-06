@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 
 function Recomendation({ item }) {
   return (
-    <div>
-      <Container to={`/product/${item.id}`}>
-        <Img src={item.url} alt="" />
-        <Title>{item.title}</Title>
-        <Price>{item.price} Kr</Price>
-      </Container>
-    </div>
+    <Container to={`/product/${item.id}`}>
+      <Img src={item.url} alt="" />
+      <Title>{item.title}</Title>
+      <Price>{item.price} Kr</Price>
+    </Container>
   );
 }
 
@@ -18,7 +16,7 @@ const Img = styled.img`
   width: 10em;
   grid-row: 1 / span 2;
   grid-column: 1;
-  margin:auto;
+  margin: auto;
 `;
 
 const Container = styled(Link)`
@@ -26,7 +24,7 @@ const Container = styled(Link)`
   border-radius: 0.5em;
   background-color: white;
   text-decoration: none;
-  height:7em;
+  height: 7em;
 `;
 
 const Title = styled.div`
@@ -34,7 +32,6 @@ const Title = styled.div`
   grid-row: 1;
   padding-inline: 1em;
   padding-top: 1em;
-
   color: black;
 `;
 

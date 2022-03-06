@@ -17,7 +17,7 @@ function Recomendations({ currentItem }) {
   }, []);
 
   return (
-    <div>
+    <>
       <h1>We also recommend: </h1>
       <Content>
         {recomendations.map((e) =>
@@ -28,14 +28,14 @@ function Recomendations({ currentItem }) {
           )
         )}
       </Content>
-    </div>
+    </>
   );
 }
 
 const Content = styled.div`
   display: flex;
   justify-content: space-evenly;
-  padding-top:1em;
+  padding-top: 1em;
 `;
 
 export default Recomendations;

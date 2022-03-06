@@ -19,7 +19,10 @@ function CheckoutItem({ item, removeItem, changeItemQuantity }) {
 
   return (
     <tr>
-      <Td>{item.title}</Td>
+      <Td>
+        <Img src={item.url} alt={item.title} />
+        <div>{item.title}</div>
+      </Td>
       <Td>{item.price} kr</Td>
       <Td>
         <Input type="number" value={number} onChange={changeNumber} />
@@ -35,6 +38,13 @@ function CheckoutItem({ item, removeItem, changeItemQuantity }) {
 const Td = styled.td`
   font-size: 26px;
   padding: 1em;
+  &:first-child {
+    display: flex;
+    align-items: center;
+  }
+  div {
+    margin-left: 1em;
+  }
 `;
 
 const Input = styled.input`
@@ -47,18 +57,22 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-    border:none;
-    height:2em;
-    font-size:26px;
-  background-color: #FFafaf;
+  border: none;
+  height: 2em;
+  font-size: 26px;
+  background-color: #ffafaf;
   box-shadow: 2px 2px 3px black;
 
   &:hover {
     box-shadow: -2px 2px 3px black;
     transition: 0.25s ease-in-out;
-    background-color: #FF0000;
+    background-color: #ff0000;
     color: white;
   }
+`;
+
+const Img = styled.img`
+  width: 5em;
 `;
 
 export default CheckoutItem;
