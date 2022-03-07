@@ -1,53 +1,49 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Nav from "./components/Nav";
-import Products from "./pages/Products";
-import Checkout from "./pages/Checkout";
-import { useState } from "react";
+import './App.css';
+import React, {useState} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Products from './pages/Products';
+import Product from './pages/Product';
+import Checkout from './pages/Checkout';
 
-function App() {
-  const [cart, setCart] = useState([
-    {
-      id: 234967,
-      title: "Bugatti (On Sale)",
-      description:
-        "Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n recusandae alias error harum maxime adipisci amet laborum.",
-      price: 550,
-      storage: 21,
-      quantity:2,
-      url: "https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_1280.jpg",
-    },
-    {
-      id: 678453,
-      title: "Ford Mustang",
-      description:
-        "Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n recusandae alias error harum maxime adipisci amet laborum.",
-      price: 1899000,
-      storage: 55,
-      quantity:1,
-      url: "https://cdn.pixabay.com/photo/2013/07/12/12/56/ford-mustang-146580_1280.png",
+
+function App() {  
+    const [productsInCart, setProductsInCart]= useState([])
+
+    const [totalsum, setTotalSum]= useState(0);
+
+    const addProductToCart= (product)=> {
+      setProductsInCart([
+        ...productsInCart,
+        product
+      ])
+
+      totalsum=== 0 ? setTotalSum(product.price) : setTotalSum(totalsum+ product.price) 
     }
-  ]);
   
-const removeItem = (id)=>{
-  console.log(cart.filter(e=> e.id == id))
-  
-}
-  
+    const clearTheCart= ()=> {
+      setProductsInCart([])
+    }
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Nav />
 
-        <Routes>
-          <Route path="/" element={<Products />} />
-          <Route />
-          <Route path="/checkout" element={<Checkout cart={cart} removeItem={removeItem}/>} />
-          <Route />
-        </Routes>
+      <BrowserRouter>
+      <Header />
+      <Nav
+        productsInCart={productsInCart}
+        cartList={productsInCart.length}
+        setProductsInCart={setProductsInCart}
+        totalsum={totalsum}
+        clearTheCart={clearTheCart}
+        />
+
+      <Routes>
+        <Route path="/" element={<Products setTotalSum={setTotalSum} addProductToCart={addProductToCart} />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/checkout" element={<Checkout cart={cart} removeItem={removeItem}/>} />
+      </Routes>
       </BrowserRouter>
     </div>
   );
