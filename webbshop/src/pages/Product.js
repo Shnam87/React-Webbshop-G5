@@ -72,23 +72,23 @@ const Container = styled.div`
   padding-bottom: 3em;
   padding-top: 2em;
   min-height: 27em;
+  width:100vw;
 `;
 
 const Img = styled.img`
   grid-row: 2;
   grid-column: 1;
-  width: 40em;
+  width: 30em;
   margin-inline: auto;
   align-items: center;
 `;
 
 const Text = styled.div`
   grid-row: 2;
-  margin: auto;
-  width: 75%;
   display: grid;
-
+  width:50%;
   align-items: center;
+  
 `;
 
 const P = styled.p`
@@ -146,7 +146,8 @@ const Button = styled.button`
 const Content = styled(motion.div)`
   background-color: whitesmoke;
   /*100 px är storleken på header */
-  height: calc(100vh - 13.5em);
+  width:100%;
+  overflow:hidden;
 `;
 
 const Input = styled.input`
