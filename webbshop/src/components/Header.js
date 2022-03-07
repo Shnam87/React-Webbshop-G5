@@ -4,7 +4,7 @@ import {StyledHeader} from '../styles/styledComponents'
 function Header() {
   return (
     <StyledHeader>
-      <h1>G5 Bilars webbutik</h1>
+      <h1>Locket.se</h1>
     </StyledHeader>
   )
 }
