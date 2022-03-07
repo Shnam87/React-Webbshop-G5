@@ -1,12 +1,15 @@
 .cartwrapper {
-    background-color: lightseagreen;
+    background-color: whitesmoke;
     padding: 15px;
     margin: 1px;
     display: none;
     position: absolute;
     right: 0;
-    border-radius: 10%;
+    border-radius: 0.5em;
     z-index: 1;
+    color:black;
+    font-weight:bold;
+    min-height: 12em;
 }
 
 .div:hover .cartwrapper {
@@ -15,10 +18,12 @@
 }
 
 
+
 .counter {
     font-size: 24px;
     position: absolute;
     color: white;
     margin-block:auto;
     margin-left:0.4em;
+   
 }

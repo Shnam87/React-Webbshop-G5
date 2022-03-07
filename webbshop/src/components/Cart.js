@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import ban from "./ban.svg";
 import styles from "../styles/pageStyle.module.css";
 import {
-  P,
   TD,
   TinyImage,
   RemoveImg,
   CartButton,
 } from "../styles/styledComponents";
+import styled from "styled-components";
 
 function Cart({ productsInCart, setProductsInCart, clearTheCart }) {
   const [totalsum, setTotalSum] = useState(0);
@@ -78,5 +78,11 @@ function Cart({ productsInCart, setProductsInCart, clearTheCart }) {
     </div>
   );
 }
+
+const P = styled.div`
+color:black;
+font-weight:bold;
+margin-block:1em;
+`;
 
 export default Cart;

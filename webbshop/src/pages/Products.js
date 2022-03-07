@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {Article, Images, Pcards, Button, Section, Title} from '../styles/styledComponents'
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 function Products({addProductToCart}) {
   const [products, setProducts] = useState([]);
@@ -27,7 +29,7 @@ function Products({addProductToCart}) {
   }
 
   return (
-    <main>
+    <Main initial={{x:"-100"}} animate={{ x: 0 }} exit={{x:"-100%"}}>
     <Title>Alla produkter</Title>
     <Article>
     {
@@ -50,9 +52,13 @@ function Products({addProductToCart}) {
       ))
     }
     </Article>
-    </main>
+    </Main>
     
   )
 }
+
+const Main = styled(motion.main)`
+
+`;
 
 export default Products

@@ -91,6 +91,7 @@ export const TD = styled.td`
 export const P = styled(Title)`
   font-size: 24px;
   margin: 4px;
+  color:black;
 `;
 
 export const CartButton = styled.button`
