@@ -58,7 +58,7 @@ function Products({addProductToCart}) {
 }
 
 const Main = styled(motion.main)`
-
+min-height:90vh;
 `;
 
 export default Products
