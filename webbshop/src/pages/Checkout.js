@@ -1,51 +1,111 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CheckoutItem from "../components/CheckoutItem";
+import CheckoutSum from "../components/CheckoutSum";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import CheckoutForm from "../components/CheckoutForm";
 
-function Checkout({ cart, removeItem }) {
- 
- const handleDelete = (e)=>{
-  removeItem(e)
- }
-
-  let sum = 0;
-  cart.map((c) => (sum += c.price * c.quantity));
+function Checkout({ cart, removeItem, changeItemQuantity }) {
+  const [formIsActive, setFormIsActive] = useState(false);
+  document.title = "Checkout";
+  const showForm = () => {
+    setFormIsActive(!formIsActive);
+  };
 
   return (
-    <div>
-      {cart != "" ? (
+    <motion.div initial={{ x: "100%" }} animate={{ x: 0 }}>
+      {cart != "" && formIsActive === false ? (
         <div>
-          <table>
+          <Table>
             <tbody>
-              <tr>
-                <th>Product</th>
-                <th>Amount</th>
-                <th>Quant.</th>
-                <th>Id</th>
-              </tr>
+              <TR>
+                <Th>Produkt</Th>
+                <Th>Kostnad /st.</Th>
+                <Th>Kvant.</Th>
+                <Th>Id</Th>
+              </TR>
 
               {cart.map((c) => (
-                <tr key={c.id}>
-                  <td>{c.title}</td>
-                  <td>{c.price}</td>
-                  <td>{c.quantity}</td>
-                  <td>{c.id}</td>
-                  <td><button onClick={handleDelete}>Remove</button></td>
-                </tr>
+                <CheckoutItem
+                  key={c.id}
+                  item={c}
+                  cart={cart}
+                  removeItem={removeItem}
+                  changeItemQuantity={changeItemQuantity}
+                />
               ))}
             </tbody>
-          </table>
-          <div>sum: {sum} kr</div>
+          </Table>
+          <CheckoutSum cart={cart} />
+          <NextBtn onClick={showForm}>Next</NextBtn>
         </div>
       ) : (
         <div>
-          Your cart is empty. To get more items,{" "}
-          <Link to="/">
-            <button>Click Here</button>
-          </Link>
+          {formIsActive ? (
+            ""
+          ) : (
+            <EmptyMessage>
+              Varukorgen är tom. Hämta artiklar, <br></br>
+              <Link to="/">
+                <Button>Här</Button>
+              </Link>
+            </EmptyMessage>
+          )}
         </div>
       )}
-    </div>
+      {formIsActive ? (
+        <motion.div initial={{ x: "100%" }} animate={{ x: 0 }}>
+          <CheckoutForm />
+        </motion.div>
+      ) : (
+        ""
+      )}
+    </motion.div>
   );
 }
 
+const TR = styled.tr`
+  background-color: lightgrey;
+`;
+
+const Table = styled.table`
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+`;
+
+const Th = styled.th`
+  padding: 1em;
+`;
+
+const NextBtn = styled.button`
+  border: none;
+  font-size: 26px;
+  padding-inline: 1em;
+  padding-block: 0.5em;
+  background-color: #a0ffa0;
+  box-shadow: 2px 2px 3px black;
+  margin-bottom: calc(100vh - 23.5em);
+
+  &:hover {
+    box-shadow: -2px 2px 3px black;
+    transition: 0.25s ease-in-out;
+    background-color: lightgreen;
+  }
+`;
+
+const Button = styled.button`
+  padding: 0.5em;
+  border: none;
+  font-size: 1.4em;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const EmptyMessage = styled.div`
+  height: calc(100vh - 23.5em);
+`;
 export default Checkout;

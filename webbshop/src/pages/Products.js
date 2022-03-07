@@ -22,8 +22,8 @@ function Products({addProductToCart}) {
   }, [] );
 
   const handleAddtocart= (product)=> {
-    addProductToCart(product)
-    console.log(product)
+    const item = {...product, quantity: 1}
+    addProductToCart(item);
   }
 
   return (
@@ -41,7 +41,6 @@ function Products({addProductToCart}) {
           <Section>
             <Link to={`/product/${product.id}`}>
 		        <h2>{product.title}</h2>
-            {/* <p>{product.description}</p> */}
             <p>Läs mer ...</p></Link>
             <p>{product.storage} items in stock. </p>
 		        <p>{product.price} SEK</p>
