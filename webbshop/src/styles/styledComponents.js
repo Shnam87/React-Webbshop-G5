@@ -2,12 +2,24 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   display: flex;
-  flex-direction: row;
+  
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   min-height: 100px;
   background-color: #282c34;
   color: white;
+  font-family: "Mulish", sans-serif;
+  font-weight: 100;
+  border-top: 4px solid red;
+
+  Link{
+    text-decoration:none;
+  }
+
+  h1{
+    color:white;
+    text-decoration:none;
+  }
 `;
 export const StyledNav = styled.nav`
   background: linear-gradient(
@@ -60,7 +72,8 @@ export const TinyImage = styled(Images)`
 `;
 
 export const CartImg = styled(Images)`
-  width: 30px;
+  width: 26px;
+  margin-top:7px;
 `;
 
 export const RemoveImg = styled(Images)`
@@ -81,15 +94,20 @@ export const P = styled(Title)`
 `;
 
 export const CartButton = styled.button`
-  font-size: 18px;
-  margin: 4px 20px;
-  padding: 10px 20px;
-  border-radius: 50%;
-  background-color: #282c34;
+   border: none;
+  background-color: #00a0ff;
+  height: 2.5em;
+  margin-right: 1em;
+  box-shadow: 2px 2px 3px black;
   color: white;
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
 
   &:hover {
-    box-shadow: -10px 10px 10px grey, 10px 10px 10px grey;
+    box-shadow: -2px 2px 3px black;
+    transition: 0.25s ease-in-out;
+    background-color: #00c0ff;
+    color: black;
   }
 `;
 

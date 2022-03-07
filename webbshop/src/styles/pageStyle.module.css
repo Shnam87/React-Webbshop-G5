@@ -9,10 +9,16 @@
     z-index: 1;
 }
 
-.div:hover .cartwrapper {display: block;}
+.div:hover .cartwrapper {
+    display: block; 
+    align-items: center;
+}
+
 
 .counter {
     font-size: 24px;
     position: absolute;
     color: white;
+    margin-block:auto;
+    margin-left:0.4em;
 }

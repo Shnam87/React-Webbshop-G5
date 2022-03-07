@@ -69,7 +69,7 @@ const FooterItem = styled.div`
 `;
 
 const Gradient = styled.div`
-  padding-top: 0.7em;
+  padding-top: 0.4em;
   background: linear-gradient(
     to right,
     #ff0000 20%,

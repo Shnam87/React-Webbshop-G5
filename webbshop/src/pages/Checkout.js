@@ -14,7 +14,7 @@ function Checkout({ cart, removeItem, changeItemQuantity }) {
   };
 
   return (
-    <motion.div initial={{ x: "100%" }} animate={{ x: 0 }}>
+    <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{x:"-100%"}}>
       {cart != "" && formIsActive === false ? (
         <div>
           <Table>

@@ -34,7 +34,12 @@ function App() {
     let newCart = cart.filter((e) => (e.id === item.id ? "" : e));
     newCart = [
       ...newCart,
-      (item = { ...item, quantity: !isNaN(item.quantity) ? Number(count) + Number(item.quantity) : Number(item.quantity) }),
+      (item = {
+        ...item,
+        quantity: !isNaN(item.quantity)
+          ? Number(count) + Number(item.quantity)
+          : Number(item.quantity),
+      }),
     ];
 
     setCart(newCart);
@@ -64,8 +69,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <Nav
+        <Header
           productsInCart={cart}
           cartList={cart.length}
           setProductsInCart={setProductsInCart}
@@ -83,7 +87,10 @@ function App() {
               />
             }
           />
-          <Route path="/product/:id" element={<Product />} />
+          <Route
+            path="/product/:id"
+            element={<Product addToCart={addToCart} />}
+          />
           <Route
             path="/checkout"
             element={<Checkout cart={cart} removeItem={removeItem} />}
