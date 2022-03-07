@@ -35,7 +35,7 @@ function Product({ addToCart }) {
   };
 
   return (
-    <Content className="Product" initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{x:"-100%"}}>
+    <Content className="Product" initial={{ x: "100%" }} animate={{ x: 0 }} exit={{x:"100%"}}>
       <Container>
         <Img src={item.url} alt={item.title} />
         <Text>
