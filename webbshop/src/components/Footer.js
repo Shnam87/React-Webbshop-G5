@@ -48,7 +48,7 @@ const FooterContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   text-align: left;
   padding-left: 1em;
-  background-color: white;
+  background-color: whitesmoke;
 `;
 
 const Title = styled.h4`
