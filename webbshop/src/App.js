@@ -77,8 +77,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Products setTotalSum={setTotalSum} addProductToCart={addProductToCart} />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/checkout" element={<Checkout cart={cart} removeItem={removeItem}/>} />
+        <Route path="/product/:id" element={<Product addToCart={addProductToCart} />} />
+        <Route path="/checkout" element={<Checkout cart={productsInCart} removeItem={removeItem}/>} />
       </Routes>
       <Footer />
       </BrowserRouter>
