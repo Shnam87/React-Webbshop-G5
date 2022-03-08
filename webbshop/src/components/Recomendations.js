@@ -33,9 +33,10 @@ function Recomendations({ currentItem }) {
 }
 
 const Content = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fit ,minmax(20em, 1fr));
   padding-top: 1em;
+  margin-left: 3em;
 `;
 
 export default Recomendations;

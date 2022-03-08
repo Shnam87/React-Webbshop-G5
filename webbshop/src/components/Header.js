@@ -75,7 +75,7 @@ const Img = styled.img`
   object-fit: cover;
   object-position: 0 -20.5em;
   @media screen and (min-width: 992px){
-    object-position: 0 -33.5em;
+    object-position: 0 -20.5em;
   }
 `;
 
@@ -85,9 +85,10 @@ height:15em;
   width:100%;
   object-fit: cover;
   object-position: 0 -27em;
+  border-bottom:2px solid red;
 
   @media screen and (min-width: 992px){
-    object-position: 0 -40em;
+    object-position: 0 -27em;
   }
   
 `;

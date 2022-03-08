@@ -48,7 +48,6 @@ export const StyledNav = styled.nav`
 
 export const Article = styled.article`
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
@@ -63,7 +62,7 @@ export const Section = styled.section`
 
 export const SectionImage = styled(Section)`
   grid-column: 1;
-  padding: 1em;
+  padding-left: 1em;
 `;
 
 export const Pcards = styled.article`
@@ -110,7 +109,8 @@ export const RemoveImg = styled(Images)`
 
 export const Title = styled.h1`
   text-align: left;
-  margin-left: 20%;
+  margin-left: 5%;
+  margin-top:0;
 `;
 
 export const TD = styled.td`
