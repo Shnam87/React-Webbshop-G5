@@ -46,7 +46,6 @@ function Cart({ productsInCart, setProductsInCart, clearTheCart }) {
               <th>Bild</th>
               <th>Namn</th>
               <th>Pris</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>

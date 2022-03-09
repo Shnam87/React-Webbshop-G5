@@ -6,16 +6,17 @@
     position: absolute;
     right: 0;
     border-radius: 0.5em;
-    z-index: 1;
     color:black;
     font-weight:bold;
-    min-height: 12em;
+    min-height:12em;
+    z-index: 200;
     border:2px solid lightgrey;
 }
 
 .div:hover .cartwrapper {
     display: block; 
     align-items: center;
+    z-index: 200;
 }
 
 
