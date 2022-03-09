@@ -49,17 +49,18 @@ function App() {
   
   /*---------------------------------------------------------------------------------*/
 
-    const addProductToCart= (product)=> {
-      setProductsInCart([
-        ...productsInCart,
-        product
-      ])
 
-      totalsum=== 0 ? setTotalSum(product.price) : setTotalSum(totalsum+ product.price) 
+    const addProductToCart= (product)=> {
+      productsInCart.find(productInCart=> productInCart.id === product.id)
+        ? setProductsInCart([...productsInCart])
+        : setProductsInCart([...productsInCart, product])
+        
+      totalsum=== 0 ? setTotalSum(product.price ) : setTotalSum(totalsum+ product.price)
     }
   
     const clearTheCart= ()=> {
       setProductsInCart([])
+      setTotalSum(0)
     }
 
   return (
@@ -72,6 +73,7 @@ function App() {
         cartList={productsInCart.length}
         setProductsInCart={setProductsInCart}
         totalsum={totalsum}
+        setTotalSum={setTotalSum}
         clearTheCart={clearTheCart}
         />
 

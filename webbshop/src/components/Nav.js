@@ -5,7 +5,7 @@ import styles from '../styles/pageStyle.module.css'
 import cart from './cart.svg'
 import Cart from './Cart'
 
-function Nav({productsInCart, cartList, setProductsInCart, totalsum, clearTheCart}) {
+function Nav({productsInCart, cartList, setProductsInCart, totalsum, setTotalSum, clearTheCart}) {
   return (
     <StyledNav>
         <Link to="/"><b>Hem</b></Link>
@@ -19,6 +19,7 @@ function Nav({productsInCart, cartList, setProductsInCart, totalsum, clearTheCar
             productsInCart={productsInCart}
             setProductsInCart={setProductsInCart}
             totalsum={totalsum}
+            setTotalSum={setTotalSum}
             clearTheCart={clearTheCart}
             />
         </div>
