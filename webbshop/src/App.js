@@ -89,11 +89,11 @@ function App() {
           />
           <Route
             path="/product/:id"
-            element={<Product addToCart={addToCart} />}
+            element={<Product addToCart={addToCart}  />}
           />
           <Route
             path="/checkout"
-            element={<Checkout cart={cart} removeItem={removeItem} />}
+            element={<Checkout cart={cart} removeItem={removeItem} changeItemQuantity={changeItemQuantity} />}
           />
         </Routes>
         <Footer />

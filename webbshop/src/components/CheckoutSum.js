@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 function CheckoutSum({ cart }) {
   let sum = 0;
   cart.map((c) => (sum += c.price * c.quantity));
-
+  useEffect(()=>{},[cart])
   return <Sum>Total: {sum} Kr</Sum>;
 }
 
