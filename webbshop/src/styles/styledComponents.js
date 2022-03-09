@@ -142,12 +142,19 @@ export const CartButton = styled.button`
 `;
 
 export const Button = styled.button`
-  font-size: 20px;
-  padding: 10px 30px;
-  margin: 10px;
-  border-radius: 10%;
+  border: none;
+  background-color: #00a0ff;
+  height: 2.5em;
+  margin-right: 1em;
+  box-shadow: 2px 2px 3px black;
+  color: white;
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
 
   &:hover {
-    box-shadow: -10px 10px 10px grey, 10px 10px 10px grey;
+    box-shadow: -2px 2px 3px black;
+    transition: 0.25s ease-in-out;
+    background-color: #00c0ff;
+    color: black;
   }
 `;
