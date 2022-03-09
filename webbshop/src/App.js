@@ -72,7 +72,7 @@ function App() {
         <Header
           productsInCart={cart}
           cartList={cart.length}
-          setProductsInCart={setProductsInCart}
+          setProductsInCart={setCart}
           totalsum={totalsum}
           clearTheCart={clearTheCart}
         />

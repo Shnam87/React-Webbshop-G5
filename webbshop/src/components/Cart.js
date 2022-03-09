@@ -20,7 +20,8 @@ function Cart({ productsInCart, setProductsInCart, clearTheCart }) {
   }, [productsInCart]);
 
   const removeFromCart = (id) => {
-    let cartProducts = productsInCart.filter((product) => product.id !== id);
+    let cartProducts = productsInCart.filter((product) => product.id !== id ? product.quantity = 0 : "");
+    console.log(cartProducts)
     setProductsInCart(cartProducts);
   };
 
