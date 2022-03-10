@@ -5,11 +5,18 @@ import styles from '../styles/pageStyle.module.css'
 import {P, TD, TinyImage, RemoveImg, CartButton } from '../styles/styledComponents'
 
 
-function Cart({productsInCart, setProductsInCart, clearTheCart, totalsum }) {
+function Cart({productsInCart, setProductsInCart, clearTheCart, totalsum, setTotalSum }) {
 
   const removeFromCart= (id)=> {
     let cartProducts= productsInCart.filter(product=> product.id !== id)
     setProductsInCart(cartProducts)
+
+    setTotalSum(
+      cartProducts.map(
+        (inCart)=>(0+ inCart.price)).reduce(
+          (oldTotalSum, newTotalSum) => oldTotalSum + newTotalSum)
+    )
+    
   }
 
   const clearingTheCart= ()=> {
