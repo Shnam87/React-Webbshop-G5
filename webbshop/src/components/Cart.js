@@ -10,12 +10,14 @@ function Cart({productsInCart, setProductsInCart, clearTheCart, totalsum, setTot
   const removeFromCart= (id)=> {
     let cartProducts= productsInCart.filter(product=> product.id !== id)
     setProductsInCart(cartProducts)
+    
+    console.log(cartProducts)
 
     setTotalSum(
-      cartProducts.map(
-        (inCart)=>(0+ inCart.price)).reduce(
-          (oldTotalSum, newTotalSum) => oldTotalSum + newTotalSum)
+      cartProducts.map((inCart)=>(0+ inCart.price)).reduce((oldTotalSum, newTotalSum) => oldTotalSum + newTotalSum, 0)
     )
+
+    console.log(totalsum)
     
   }
 

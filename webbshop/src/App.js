@@ -51,7 +51,7 @@ function App() {
 
 
   const addProductToCart= (product)=> {
-    productsInCart.find(productInCart=> productInCart.id === product.id)
+    let cart = productsInCart.find(productInCart=> productInCart.id === product.id)
       ? setProductsInCart([...productsInCart])
       : ( setProductsInCart([...productsInCart, product]), 
           totalsum=== 0 ? setTotalSum(product.price ) : setTotalSum(totalsum+ product.price) 
